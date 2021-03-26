@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import isURL from 'validator/lib/isURL';
-import { shortenURL, Result } from '../api/handlers';
+import { shortenURL, Result, getLinksFromLocalStorage } from '../api/handlers';
 import ResultCard from './ResultCard';
 
 const initialValueForAllLinks:Result[] = [];
@@ -11,6 +11,7 @@ const ShortlyInput = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  /** HANDLE LINK SHORTENING PROCESS AND UPDATE LOADING STATES ACCORDINGLY */
   const handleLinkShortening = async () => {
     setIsLoading(true);
     if (link === '') {
@@ -26,22 +27,37 @@ const ShortlyInput = () => {
     if (status === 'OK') {
       setLink('');
       setAllLinks((initialLinks) => [
-        ...initialLinks,
         {
           originalLink: data.originalLink,
           fullShortLink: data.fullShortLink,
           isCopied: data.isCopied,
-        }]);
+        },
+        ...initialLinks,
+      ]);
     } else if (status === 'ERROR') {
       setErrorMessage(message);
     }
   };
 
+  /** CLEAR ERROR AND UPDATE TEXT AS USER TYPES */
   const handleChangeLinkText = (e) => {
     setErrorMessage('');
     const { value } = e.target;
     setLink(value);
   };
+
+  /** COPY TO USER'S CLIPBOARD */
+  const handleCopyLink = (copiedLink) => {
+    const newLinks = allLinks.map((item) => (
+      item.fullShortLink === copiedLink
+        ? { ...item, isCopied: true } : item));
+    setAllLinks(newLinks);
+  };
+
+  useEffect(() => {
+    const linksFromStorage = getLinksFromLocalStorage() as Result[];
+    setAllLinks(linksFromStorage.map((aLink) => ({ ...aLink, isCopied: false })));
+  }, []);
 
   return (
     <div className="flex flex-col -mt-16 sm:-mt-12 mb-10 w-full sm:w-11/12 lg:w-4/5 self-center font-poppins relative">
@@ -70,10 +86,11 @@ const ShortlyInput = () => {
       <div className="flex-col flex">
         {allLinks.length > 0 && (allLinks.map((oneLink) => (
           <ResultCard
-            key={oneLink.originalLink}
+            key={oneLink.fullShortLink}
             initialLink={oneLink.originalLink}
             finalLink={oneLink.fullShortLink}
             isCopied={oneLink.isCopied}
+            handleCopyLink={handleCopyLink}
           />
         )))}
       </div>

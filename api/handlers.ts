@@ -1,11 +1,35 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 
-interface Result {
+/** RESULT TS INTERFACE */
+export type Result = {
     originalLink:string,
     fullShortLink:string,
     isCopied:boolean
 }
+
+/** STORE NEW RESULTS IN LOCAL STORAGE */
+const addToLocalStorage = (data:Result) => {
+  const storage = window.localStorage.getItem('shortly');
+  if (storage === null) {
+    const newData = JSON.stringify([data]);
+    window.localStorage.setItem('shortly', newData);
+  } else {
+    const parsedStorageItem = JSON.parse(storage);
+    const newData = JSON.stringify([data, ...parsedStorageItem]);
+    window.localStorage.setItem('shortly', newData);
+  }
+};
+
+/** FETCH FROM LOCAL STORAGE */
+const getLinksFromLocalStorage = () => {
+  const storage = window.localStorage.getItem('shortly');
+  if (storage === null) {
+    return [];
+  }
+  const parsedStorageItem = JSON.parse(storage);
+  return parsedStorageItem;
+};
 
 /** MAKE API CALL TO SHORTEN URL */
 const shortenURL = async (url:string)
@@ -15,14 +39,20 @@ const shortenURL = async (url:string)
 
     console.log(response.data);
 
+    const newData = {
+      fullShortLink: response.data.result.full_short_link,
+      originalLink: response.data.result.original_link,
+      isCopied: false,
+    };
+
+    if (response.data.ok) {
+      addToLocalStorage(newData);
+    }
+
     return {
       message: 'success',
       status: 'OK',
-      data: {
-        fullShortLink: response.data.result.full_short_link,
-        originalLink: response.data.result.original_link,
-        isCopied: false,
-      },
+      data: newData,
     };
   } catch (e) {
     console.log(e);
@@ -32,5 +62,5 @@ const shortenURL = async (url:string)
 
 export {
   shortenURL,
-  Result,
+  getLinksFromLocalStorage,
 };
