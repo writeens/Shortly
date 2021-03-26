@@ -1,17 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Hello Finn Auto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main>
+        <h1 className="text-6xl font-bold text-red-600">
           Hello Finn Auto
         </h1>
       </main>
