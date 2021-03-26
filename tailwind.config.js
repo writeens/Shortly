@@ -14,6 +14,7 @@ module.exports = {
         sGreyViolet: '#9e9aa7',
         sVeryDarkBlue: '#35323e',
         sVeryDarkViolet: '#232127',
+        sOffWhite: '#f0f1f6',
       },
     },
   },

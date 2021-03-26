@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import Link from 'next/link';
 import LogoSVG from './LogoSVG';
@@ -10,19 +9,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-28 relative z-50">
+    <nav className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-16 xl:px-28 relative z-50">
       {/** TOGGLE */}
       <button type="button" onClick={handleToggleNavbar} className="w-8 h-8 absolute right-3 sm:hidden focus:ring-1 focus:ring-opacity-60 focus:ring-sDarkViolet focus:outline-none">
         <i className="fa fa-bars fa-lg text-sGreyViolet" />
       </button>
       <div className="flex items-center w-full">
         <Link href="/">
-          <div className="mr-6 sm:mr-12">
+          <a className="mr-6 sm:mr-12">
             <LogoSVG />
-          </div>
+          </a>
         </Link>
-        <div className={`flex-1 absolute sm:relative flex-col sm:flex-row sm:items-center sm:justify-between ${showMenu ? '' : 'hidden'} sm:flex top-16 sm:top-0 right-0 left-0 mx-6 sm:mx-0 rounded-lg sm:rounded-none bg-sDarkViolet sm:bg-transparent pb-3 sm:pb-0 px-6 sm:px-0`}>
-          <div className=" text-white sm:text-sGreyViolet flex-col flex sm:flex-row">
+        <div className={`flex-1 absolute sm:relative flex-col sm:flex-row sm:items-center sm:justify-between ${showMenu ? '' : 'hidden'} sm:flex top-16 sm:top-0 right-0 left-0 mx-4 sm:mx-0 rounded-lg sm:rounded-none bg-sDarkViolet sm:bg-transparent pb-3 sm:pb-0 px-8 sm:px-0`}>
+          <div className=" text-white sm:text-sGreyViolet flex-col flex sm:flex-row border-b border-sGreyViolet sm:border-b-0 sm:border-none pb-3 sm:pb-0">
             <Link href="/">
               <a className="sm:mr-4 text-sm make-white hover:text-sVeryDarkBlue my-2 sm:my-0 text-center">Features</a>
             </Link>

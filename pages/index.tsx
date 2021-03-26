@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import GetStartedLayer from '../components/GetStartedLayer';
+import AdvancedStatsLayer from '../components/AdvancedStatsLayer';
 
 export default function Landing() {
   return (
@@ -12,11 +13,7 @@ export default function Landing() {
       </Head>
       <Navbar />
       <GetStartedLayer />
-      {/* <main>
-        <h1 className="text-6xl font-poppins font-bold">
-          Hello Finn
-        </h1>
-      </main> */}
+      <AdvancedStatsLayer />
 
     </div>
   );
