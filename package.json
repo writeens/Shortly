@@ -1,0 +1,28 @@
+{
+  "name": "reactjsnextjs-shortly-vtpqht",
+  "version": "1.0.0",
+  "description": "Using TypeScript and NextJS, your challenge is to build out a URL shortening web app, integrate with the [shrtcode API](https://app.shrtco.de/docs), and get it looking as close to the design as possible.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://finn-gmbh-vtpqht@git.codesubmit.io/finn-gmbh/reactjsnextjs-shortly-vtpqht"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.36",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.3"
+  }
+}
