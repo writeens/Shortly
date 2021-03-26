@@ -12,11 +12,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-        Hello Finn Auto
+          Hello Finn Auto
         </h1>
       </main>
 
-      
     </div>
   );
 }
