@@ -10,8 +10,8 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="text-6xl font-bold text-red-600">
-          Hello Finn Auto
+        <h1 className="text-6xl font-poppins font-bold">
+          Hello Finn
         </h1>
       </main>
 
