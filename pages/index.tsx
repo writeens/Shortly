@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import GetStartedLayer from '../components/GetStartedLayer';
 import AdvancedStatsLayer from '../components/AdvancedStatsLayer';
+import BoostLayer from '../components/BoostLayer';
 
 export default function Landing() {
   return (
@@ -14,7 +15,7 @@ export default function Landing() {
       <Navbar />
       <GetStartedLayer />
       <AdvancedStatsLayer />
-
+      <BoostLayer />
     </div>
   );
 }
