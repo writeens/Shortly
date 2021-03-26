@@ -16,6 +16,10 @@ module.exports = {
         sVeryDarkViolet: '#232127',
         sOffWhite: '#f0f1f6',
       },
+      spacing: {
+        108: '27rem',
+        120: '30rem',
+      },
     },
   },
   variants: {
