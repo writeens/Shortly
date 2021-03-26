@@ -9,18 +9,10 @@ const Navbar = () => {
     setShowMenu((prev) => !prev);
   };
 
-  //   const handleResize = () => {
-
-  //   }
-
-  //   useEffect(() => {
-  //       window.addEventListener('resize', handleResize)
-  //   }, [])
-
   return (
-    <nav className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-28 relative">
+    <nav className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-28 relative z-50">
       {/** TOGGLE */}
-      <button type="button" onClick={handleToggleNavbar} className="w-8 h-8 absolute right-3 sm:hidden focus:ring-sDarkViolet">
+      <button type="button" onClick={handleToggleNavbar} className="w-8 h-8 absolute right-3 sm:hidden focus:ring-1 focus:ring-opacity-60 focus:ring-sDarkViolet focus:outline-none">
         <i className="fa fa-bars fa-lg text-sGreyViolet" />
       </button>
       <div className="flex items-center w-full">
