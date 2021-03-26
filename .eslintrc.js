@@ -35,6 +35,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'jsx-a11y/anchor-is-valid': 'off',
   },
   settings: {
     'import/resolver': {
