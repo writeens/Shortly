@@ -4,11 +4,11 @@ import LogoSVG from './LogoSVG';
 
 const FooterStack = ({ links, title }
     :{links?:{title:string, index:number, link:string}[], title:string}) => (
-      <div className="font-poppins flex-col flex text-white w-full sm:w-auto mb-4 sm:mb-0 sm:text-left text-center">
-        <p className=" font-bold text-base mb-3">{title}</p>
+      <div id={`footer${title}`} className="font-poppins flex-col flex text-white w-full sm:w-auto mb-4 sm:mb-0 sm:text-left text-center">
+        <p id={`footerTitle${title}`} className=" font-bold text-base mb-3">{title}</p>
         {links.length > 0 && links.map((item) => (
           <Link href={item.link} key={item.index}>
-            <a className="text-sm cursor-pointer font-medium mb-2 text-sGreyViolet hover:text-white">{item.title}</a>
+            <a id={`footer${title}${item.index}`} className="text-sm cursor-pointer font-medium mb-2 text-sGreyViolet hover:text-white">{item.title}</a>
           </Link>
         ))}
       </div>

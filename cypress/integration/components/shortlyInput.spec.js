@@ -30,7 +30,7 @@ context('Action', () => {
     cy.get('#input').type('https://rvysion.com').should('have.value', 'https://rvysion.com');
     cy.get('#inputButton').click();
     cy.get('#inputButton').should('contain', 'Please Wait');
-    cy.wait(20000);
+    cy.wait(15000);
     cy.get('#inputButton').should('contain', 'Shorten It');
   });
 });

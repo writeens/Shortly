@@ -22,13 +22,13 @@ const addToLocalStorage = (data:Result) => {
 };
 
 /** FETCH FROM LOCAL STORAGE */
-const getLinksFromLocalStorage = () => {
+const getLinksFromLocalStorage = ():Result[] => {
   const storage = window.localStorage.getItem('shortly');
   if (storage === null) {
-    return [];
+    return [] as Result[];
   }
   const parsedStorageItem = JSON.parse(storage);
-  return parsedStorageItem;
+  return parsedStorageItem as Result[];
 };
 
 /** MAKE API CALL TO SHORTEN URL */
@@ -36,8 +36,6 @@ const shortenURL = async (url:string)
 :Promise<{message:string, status:string, data?:Result, error?:{}}> => {
   try {
     const response = await axios.get(`https://api.shrtco.de/v2/shorten?url=${url}`);
-
-    console.log(response.data);
 
     const newData = {
       fullShortLink: response.data.result.full_short_link,
@@ -63,4 +61,5 @@ const shortenURL = async (url:string)
 export {
   shortenURL,
   getLinksFromLocalStorage,
+  addToLocalStorage,
 };

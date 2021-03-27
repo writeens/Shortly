@@ -4,7 +4,7 @@ context('Action', () => {
     cy.visit('http://localhost:3000');
     cy.get('#input').type('https://rvysion.com').should('have.value', 'https://rvysion.com');
     cy.get('#inputButton').click();
-    cy.wait(10000);
+    cy.wait(15000);
     cy.get('[data-cy=result]').should('be.visible');
     cy.get('[data-cy=resultOriginalLink]').should('contain', 'https://rvysion.com');
     cy.get('[data-cy=resultFinalLink]').should(($final) => {
@@ -17,7 +17,7 @@ context('Action', () => {
     cy.visit('http://localhost:3000');
     cy.get('#input').type('https://rvysion.com').should('have.value', 'https://rvysion.com');
     cy.get('#inputButton').click();
-    cy.wait(10000);
+    cy.wait(15000);
     cy.get('[data-cy=resultButton]').click();
     cy.get('[data-cy=resultButton]').should('contain', 'Copied!');
     cy.get('[data-cy=resultButton]').should('have.css', 'background-color', 'rgb(59, 48, 84)');

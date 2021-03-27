@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import isURL from 'validator/lib/isURL';
 import { shortenURL, Result, getLinksFromLocalStorage } from '../api/handlers';
 import ResultCard from './ResultCard';
@@ -34,9 +34,8 @@ const ShortlyInput = () => {
         },
         ...initialLinks,
       ]);
-    } else if (status === 'ERROR') {
-      setErrorMessage(message);
     }
+    return setErrorMessage(message);
   };
 
   /** CLEAR ERROR AND UPDATE TEXT AS USER TYPES */
@@ -55,7 +54,7 @@ const ShortlyInput = () => {
   };
 
   useEffect(() => {
-    const linksFromStorage = getLinksFromLocalStorage() as Result[];
+    const linksFromStorage = getLinksFromLocalStorage();
     setAllLinks(linksFromStorage.map((aLink) => ({ ...aLink, isCopied: false })));
   }, []);
 

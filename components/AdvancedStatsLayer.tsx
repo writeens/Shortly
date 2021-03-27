@@ -6,8 +6,8 @@ const AdvancedStatsLayer = () => (
   <div className=" bg-sOffWhite flex-col flex px-4 md:px-12 lg:px-16 xl:px-28 pb-14">
     <ShortlyInput />
     <div className="flex flex-col font-poppins w-full sm:w-96 self-center mb-5">
-      <p className="text-3xl mb-3 font-bold text-center text-sVeryDarkBlue">Advanced Statistics</p>
-      <p className="text-sGreyViolet mb-6 text-center text-base">
+      <p id="asHeader" className="text-3xl mb-3 font-bold text-center text-sVeryDarkBlue">Advanced Statistics</p>
+      <p id="asText" className="text-sGreyViolet mb-6 text-center text-base">
         Track how your links are performing across
         the web with our advanced statistics dashboard.
       </p>
