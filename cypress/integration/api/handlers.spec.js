@@ -34,7 +34,7 @@ context('Local Storage', () => {
     expect(formattedValue[0]).to.have.property('isCopied').and.be.oneOf([true, false]);
   });
 
-  it('Get Link From Local Storage', () => {
+  it('Get Links From Local Storage if present', () => {
     const value = localStorage.getItem('shortly');
     expect(value).to.be.equal(null);
     addToLocalStorage({
@@ -53,5 +53,13 @@ context('Local Storage', () => {
     expect(formattedValue[0]).to.have.property('originalLink').and.to.not.equal('');
     expect(formattedValue[0]).to.have.property('fullShortLink').and.to.not.equal('');
     expect(formattedValue[0]).to.have.property('isCopied').and.be.oneOf([true, false]);
+  });
+
+  it('Get Empty Array from Local Storage if links are absent', () => {
+    const value = localStorage.getItem('shortly');
+    expect(value).to.be.equal(null);
+
+    const formattedValue = getLinksFromLocalStorage();
+    expect(formattedValue).to.have.length(0);
   });
 });
