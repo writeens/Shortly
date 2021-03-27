@@ -10,7 +10,7 @@ const GetStartedLayer = () => (
         insights into how your links are performing
       </p>
       <Link href="/">
-        <a className="px-6 py-2 bg-sCyan text-white rounded-2xl cursor-pointer hover:bg-opacity-70 hover:text-opacity-80 text-center self-center sm:self-start">Get Started</a>
+        <a data-cy="getStartedButton" className="px-6 py-2 bg-sCyan text-white rounded-2xl cursor-pointer hover:bg-opacity-70 hover:text-opacity-80 text-center self-center sm:self-start">Get Started</a>
       </Link>
     </div>
     <div className="flex-1 w-full flex justify-center sm:justify-end order-1 sm:order-2 mb-6 sm:mb-0">

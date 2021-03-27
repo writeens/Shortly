@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cypress:open": "cypress open",
+    "coverage:open": "open coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,11 +26,14 @@
     "validator": "^13.5.2"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.2",
     "@types/node": "^14.14.36",
     "@types/react": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "autoprefixer": "^10.2.5",
+    "babel-plugin-istanbul": "^6.0.0",
+    "cypress": "^6.8.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
