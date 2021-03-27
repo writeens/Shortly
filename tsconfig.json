@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/_app.tsx"  ],
+, "pages/_app.tsx", "cypress/integration/tests/sample.spec.js"  ],
   "exclude": [
     "node_modules"
   ]

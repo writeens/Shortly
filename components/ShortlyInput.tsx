@@ -61,8 +61,8 @@ const ShortlyInput = () => {
 
   return (
     <div className="flex flex-col -mt-16 sm:-mt-12 mb-10 w-full sm:w-11/12 lg:w-4/5 self-center font-poppins relative">
-      <input className="hidden" />
-      <div className="bg-sDarkViolet inputBg p-4 sm:p-10 flex flex-col sm:flex-row rounded-md shadow-md mb-10">
+
+      <div id="inputBg" className="bg-sDarkViolet inputBg p-4 sm:p-10 flex flex-col sm:flex-row rounded-md shadow-md mb-10">
         <label className="flex flex-col flex-1 z-10 h-14 sm:mb-0 mb-7 sm:mr-4 relative" htmlFor="input">
           <input
             id="input"
@@ -72,9 +72,10 @@ const ShortlyInput = () => {
             onChange={handleChangeLinkText}
             placeholder="Shorten a link here..."
           />
-          {errorMessage && <p className=" text-sRed text-sm absolute ml-2 -bottom-6">{errorMessage}</p>}
+          {errorMessage && <p id="inputErrorMessage" className=" text-sRed text-sm absolute ml-2 -bottom-6">{errorMessage}</p>}
         </label>
         <button
+          id="inputButton"
           type="button"
           onClick={handleLinkShortening}
           disabled={isLoading}
