@@ -4,14 +4,14 @@ context('Viewport', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it('On Desktop Navbar should be hidden', () => {
+  it('On Desktop Navbar Toggle should be hidden', () => {
     cy.wait(200);
     cy.viewport('macbook-15');
 
     cy.get('#navbarToggle').should('not.be.visible');
   });
 
-  it('On Mobile Navbar should be visible', () => {
+  it('On Mobile Navbar Toggle should be visible', () => {
     cy.wait(200);
     cy.viewport('iphone-xr');
 

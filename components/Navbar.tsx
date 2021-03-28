@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav id="navbar" className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-16 xl:px-28 relative z-50">
+    <nav id="navbar" className="w-full min-w-full flex flex-row items-center justify-between py-3 font-poppins font-bold px-4 md:px-12 lg:px-16 xl:px-28 relative z-50 mb-4 sm:mb-0">
       {/** TOGGLE */}
       <button id="navbarToggle" type="button" onClick={handleToggleNavbar} className="w-8 h-8 absolute right-3 sm:hidden focus:ring-1 focus:ring-opacity-60 focus:ring-sDarkViolet focus:outline-none">
         <i className="fa fa-bars fa-lg text-sGreyViolet" />

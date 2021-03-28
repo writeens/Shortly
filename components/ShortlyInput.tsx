@@ -16,11 +16,13 @@ const ShortlyInput = () => {
     setIsLoading(true);
     if (link === '') {
       setIsLoading(false);
-      return setErrorMessage('Please add a link');
+      setErrorMessage('Please add a link');
+      return;
     }
     if (isURL(link) === false) {
       setIsLoading(false);
-      return setErrorMessage('Please enter a valid link');
+      setErrorMessage('Please enter a valid link');
+      return;
     }
     const { data, message, status } = await shortenURL(link);
     setIsLoading(false);
@@ -34,8 +36,9 @@ const ShortlyInput = () => {
         },
         ...initialLinks,
       ]);
+      return;
     }
-    return setErrorMessage(message);
+    setErrorMessage(message);
   };
 
   /** CLEAR ERROR AND UPDATE TEXT AS USER TYPES */
@@ -66,7 +69,7 @@ const ShortlyInput = () => {
           <input
             id="input"
             type="text"
-            className=" flex-1 rounded-md pl-4"
+            className={`flex-1 rounded-md pl-4 ${errorMessage ? 'ring-2 ring-sRed placeholder-sRed' : ''}`}
             value={link}
             onChange={handleChangeLinkText}
             placeholder="Shorten a link here..."
